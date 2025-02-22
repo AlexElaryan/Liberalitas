@@ -1,6 +1,31 @@
 @font-face {
-    font-family: SF Pro;
-    src: url(fonts/proximanova_black.ttf);
+    font-family: 'SanFrancisco';
+    src: url('fonts/SF-Pro/SF-Pro-Text-Light.otf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'SanFrancisco';
+    src: url('fonts/SF-Pro/SF-Pro-Text-Regular.otf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'SanFrancisco';
+    src: url('fonts/SF-Pro/SF-Pro-Text-Medium.otf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'SanFrancisco';
+    src: url('fonts/SF-Pro/SF-Pro-Text-Semibold.otf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'SanFrancisco';
+    src: url('fonts/SF-Pro/SF-Pro-Text-Bold.otf');
+    font-weight: 700;
 }
 
 * {
@@ -11,13 +36,13 @@
 }
 
 body {
-    font-family: SF Pro;
-    font-family: sans-serif;
+    font-family: 'SanFrancisco', sans-serif;
     font-weight: 590;
 }
 
 textarea {
-    font-family: sans-serif;
+    font-family: 'SanFrancisco', sans-serif;
+
 }
 
 button {
@@ -87,7 +112,7 @@ header h2 {
     border-radius: 8px;
     padding: 9px 14px;
     border: none;
-    font-size: 20px;
+    font-size: 16px;
     box-shadow: 0px 10px 20px rgba(131, 106, 212, 0.3);
     transition: box-shadow 0.2s ease;
 }

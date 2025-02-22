@@ -28,8 +28,8 @@
         </div>
 
         <div class="login-buttons">
-            <button class="login">Log in</button>
-            <button class="register purple-button">Register</button>
+            <button class="login" onclick="modalOpen(document.querySelector('.log-in-modal'))">Log in</button>
+            <button class="register purple-button" onclick="modalOpen(document.querySelector('.register-modal'))">Register</button>
         </div>
     </header>
 
@@ -54,8 +54,8 @@
 
 
         <div class="intro-text">
-            <h2>Your go - to method for sending and receiving international payments</h2>
-            <button class="purple-button">Create account</button>
+            <h2 class="wavy">Your go - to method for sending and receiving international payments</h2>
+            <button class="purple-button" onclick="modalOpen(document.querySelector('.register-modal'))">Create account</button>
         </div>
     </div>
 
@@ -106,6 +106,10 @@
         </svg>
         <div class="section">
             <div class="multiple-left">
+                <div class="multiple-title">
+                    <h2 class="title">Multiple Top-UP</h2>
+                    <span>Unleash Global Potential with Local Currency Payments</span>
+                </div>
                 <img src="image/card.png" alt="card">
             </div>
             <div class="multiple-right">
@@ -125,7 +129,8 @@
                         <p>Local e-wallets</p>
                     </div>
                 </div>
-                <button class="purple-button">Contact us</button>
+                <button class="purple-button"><a href="#contact" style="color: #fff; text-decoration: none;">Contact
+                        us</a></button>
             </div>
         </div>
     </div>
@@ -180,7 +185,8 @@
                     <img src="image/banktrns.png" alt="banktrns">
                     <p><span>Single integration. </span>Easy to integrate REST API with online support. </p>
                 </div>
-                <button class="purple-button">Apply for API</button>
+                <button class="purple-button"><a href="#contact" style="color: #fff; text-decoration: none;">Apply for
+                        API</a></button>
                 <div class="business-item">
                     <img src="image/creditcrd.png" alt="banktrns">
                     <p><span>Quick funds availability. </span>Minimal time lug from client’s payment</p>
@@ -201,21 +207,23 @@
         </div>
     </div>
 
-    <div class="contact section">
+    <div class="contact section" id="contact">
         <h2 class="title">Have any qestions?</h2>
         <div class="contact-block">
             <div class="contact-left">
                 <h3>Please fill out the form below</h3>
-                <form method="post">
+                <form method="POST" id="form">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
                     <div class="form-block">
                         <div class="form-left">
-                            <input type="text" placeholder="Name" required>
-                            <input type="email" placeholder="Email" required>
-                            <input type="text" placeholder="Phone">
+                            <input type="text" name="Name" placeholder="Name" required>
+                            <input type="email" name="Email" placeholder="Email" required>
+                            <input type="text" name="Phone" placeholder="Phone">
                         </div>
-                        <textarea name="" id="" placeholder="Your message"></textarea>
+                        <textarea name="Message" placeholder="Your message"></textarea>
                     </div>
                     <button type="submit" class="purple-button">Send</button>
+                    
                 </form>
             </div>
             <div class="contact-right">
@@ -280,8 +288,8 @@
                 <ul>
                     <li><a href>About</a></li>
                     <li><a href>Fees</a></li>
-                    <li><a href>AML Policy</a></li>
-                    <li><a href>Terms and Conditions</a></li>
+                    <li><a href="policy.html">AML Policy</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
                 </ul>
             </nav>
         </div>
@@ -301,6 +309,72 @@
             </div>
         </div>
     </footer>
+
+    <div class="register-modal modalReg create-account">
+        <div class="modalReg-content">
+            <div class="modalReg-close" onclick="modalClose(document.querySelector('.register-modal'))">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5.5 5.5L16.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <img src="image/modalLogo.png" alt="logo">
+            <h3>Fill in the registration and security fields, please.</h3>
+            <form class="modalReg-form__block">
+                <div class="modalReg-form__inps">
+                    <input type="email" placeholder="Email">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Surname">
+                    <input type="date" placeholder="Date of birth">
+                    <input type="text" placeholder="Place of birth">
+                </div>
+                <div class="modalReg-form__check">
+                    <input type="checkbox" id="agreementregister">
+                    <label for="agreementregister">I agree to create an acoount</label>
+                </div>
+                <div class="captha">
+                    <img src="image/captha.png" alt="captha">
+
+                    <input type="text" placeholder="Enter a captha">
+                </div>
+                <button type="submit" class="purple-button">Create account</button>
+            </form>
+            <p>By clicking on the button below, you agree with the <a href="terms.html">Terms of
+                    Conditions</a> and <a href="policy.html"> the Privacy Policy</a></p>
+        </div>
+    </div>
+    <div class="modalReg log-in-modal">
+        <div class="modalReg-content">
+            <div class="modalReg-close modalLog-close" onclick="modalClose(document.querySelector('.log-in-modal'))">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5.5 5.5L16.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <img src="image/modalLogo.png" alt="logo">
+            <h3>Fill in the registration and security fields, please.</h3>
+            <form class="modalReg-form__block">
+                <div class="modalReg-form__inps">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                </div>
+                <div class="captha">
+                    <img src="image/captha.png" alt="captha">
+                    <input type="text" placeholder="Enter a captha">
+                </div>
+                <button type="submit" class="purple-button">Log in</button>
+                <div id="result"></div>
+            </form>
+            <div class="modallogin-bottom">
+                <a href="">Reset password</a>
+                <a href="">Account registration</a>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

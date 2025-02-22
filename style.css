@@ -16,6 +16,10 @@ body {
     font-weight: 590;
 }
 
+textarea {
+    font-family: sans-serif;
+}
+
 button {
     cursor: pointer;
 }

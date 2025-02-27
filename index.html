@@ -329,10 +329,8 @@
                     <input type="email" placeholder="Email">
                     <input type="text" placeholder="Name">
                     <input type="text" placeholder="Surname">
-                    <label for="dob" class="placeholder">Date of birth</label>
-                    <input type="date" id="dob" onfocus="this.previousElementSibling.style.display='none'"
-                        onblur="if(!this.value) this.previousElementSibling.style.display='block'"
-                        data-placeholder="Date of birth">
+                    <input type="text" placeholder="Date of birth"
+                        onfocus="this.type='date'" onblur="this.type = 'text'">
                     <!-- <input type="date" placeholder="Date of birth"> -->
                     <input type="text" placeholder="Place of birth">
                 </div>

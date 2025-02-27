@@ -6,8 +6,6 @@ function copy(text) {
     });
 }
 
-const register = document.querySelector('.register-modal');
-const login = document.querySelector('.log-in-modal');
 
 function modalOpen(modal) {
     modal.classList.add('modalRegActive');
@@ -20,7 +18,7 @@ function modalClose(modal) {
 const form = document.getElementById('form');
 const result = document.getElementById('result');
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', function (e) {
     const formData = new FormData(form);
     e.preventDefault();
 
@@ -30,13 +28,13 @@ form.addEventListener('submit', function(e) {
     result.innerHTML = "Please wait..."
 
     fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
         .then(async (response) => {
             let json = await response.json();
             if (response.status == 200) {
@@ -50,10 +48,41 @@ form.addEventListener('submit', function(e) {
             console.log(error);
             result.innerHTML = "Something went wrong!";
         })
-        .then(function() {
+        .then(function () {
             form.reset();
+            Swal.fire({
+                title: "Thank You For Your Feedback! ",
+                text: "One of our customer representatives will contact you soon",
+                icon: "success"
+            });
             setTimeout(() => {
                 result.style.display = "none";
             }, 3000);
         });
 });
+
+
+
+
+const formRegister = document.getElementById('form-register');
+const emailConfirmModal = document.querySelector('.email-confirm-modal');
+
+formRegister.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (formRegister.checkValidity()) {
+        modalOpen(emailConfirmModal);
+    }
+})
+
+
+const form2 = document.getElementById('form2');
+const resetPasswordAnswer = document.querySelector('.modadlResetPasswordAnswer');
+
+form2.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (form2.checkValidity()) {
+        modalOpen(resetPasswordAnswer);
+    }
+})

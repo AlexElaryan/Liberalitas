@@ -29,7 +29,8 @@
 
         <div class="login-buttons">
             <button class="login" onclick="modalOpen(document.querySelector('.log-in-modal'))">Log in</button>
-            <button class="register purple-button" onclick="modalOpen(document.querySelector('.register-modal'))">Register</button>
+            <button class="register purple-button"
+                onclick="modalOpen(document.querySelector('.register-modal'))">Register</button>
         </div>
     </header>
 
@@ -55,7 +56,8 @@
 
         <div class="intro-text">
             <h2 class="wavy">Your go - to method for sending and receiving international payments</h2>
-            <button class="purple-button" onclick="modalOpen(document.querySelector('.register-modal'))">Create account</button>
+            <button class="purple-button" onclick="modalOpen(document.querySelector('.register-modal'))">Create
+                account</button>
         </div>
     </div>
 
@@ -185,7 +187,8 @@
                     <img src="image/banktrns.png" alt="banktrns">
                     <p><span>Single integration. </span>Easy to integrate REST API with online support. </p>
                 </div>
-                <button class="purple-button"><a href="#contact" style="color: #fff; text-decoration: none;">Apply for
+                <button class="purple-button"><a href="mailto:support@liberalitas.uk"
+                        style="color: #fff; text-decoration: none;">Apply for
                         API</a></button>
                 <div class="business-item">
                     <img src="image/creditcrd.png" alt="banktrns">
@@ -223,7 +226,7 @@
                         <textarea name="Message" placeholder="Your message"></textarea>
                     </div>
                     <button type="submit" class="purple-button">Send</button>
-                    
+
                 </form>
             </div>
             <div class="contact-right">
@@ -251,7 +254,7 @@
                         </defs>
                     </svg>
 
-                    <a href="mailto:info@globalfin.uk">info@libearlitas</a>
+                    <a href="mailto:info@liberalitas.uk">info@liberalitas.uk</a>
                     <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="29" height="29" rx="4" fill="#EFE9FF" />
                         <path
@@ -287,8 +290,7 @@
             <nav>
                 <ul>
                     <li><a href>About</a></li>
-                    <li><a href>Fees</a></li>
-                    <li><a href="policy.html">AML Policy</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
                     <li><a href="terms.html">Terms and Conditions</a></li>
                 </ul>
             </nav>
@@ -300,7 +302,7 @@
                 are issued by the authority.</p>
 
             <div>
-                <a href="mailto:info@liberalitas.io">info@liberalitas.io</a>
+                <a href="mailto:info@liberalitas.uk">info@liberalitas.uk</a>
                 <svg width="3" height="3" viewBox="0 0 3 3" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="1.5" cy="1.5" r="1.5" fill="#4C486E" />
                 </svg>
@@ -322,12 +324,14 @@
             </div>
             <img src="image/modalLogo.png" alt="logo">
             <h3>Fill in the registration and security fields, please.</h3>
-            <form class="modalReg-form__block">
+            <form class="modalReg-form__block" id="form-register">
                 <div class="modalReg-form__inps">
                     <input type="email" placeholder="Email">
                     <input type="text" placeholder="Name">
                     <input type="text" placeholder="Surname">
-                    <input type="date" placeholder="Date of birth">
+                    <label for="dob" class="placeholder">Date of birth</label>
+                    <input type="date" id="dob" onfocus="this.previousElementSibling.style.display='none'" onblur="if(!this.value) this.previousElementSibling.style.display='block'" data-placeholder="Date of birth">
+                    <!-- <input type="date" placeholder="Date of birth"> -->
                     <input type="text" placeholder="Place of birth">
                 </div>
                 <div class="modalReg-form__check">
@@ -370,13 +374,83 @@
                 <div id="result"></div>
             </form>
             <div class="modallogin-bottom">
-                <a href="">Reset password</a>
+                <a onclick="modalOpen(document.querySelector('.modadlResetPassword'))">Reset password</a>
                 <a href="">Account registration</a>
             </div>
         </div>
     </div>
 
+    <div class="modadlResetPassword modalReg">
+
+        <div class="modalReg-content">
+            <div class="modalReg-close modalLog-close" onclick="modalClose(this.closest('.modalReg'))">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5.5 5.5L16.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <img src="image/modalLogo.png" alt="logo">
+            <h3>Fill in the registration and security fields, please.</h3>
+            <form class="modalReg-form__block" method="post" id="form2">
+                <div class="modalReg-form__inps">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="captha">
+                    <img src="image/captha.png" alt="captha">
+                    <input type="text" placeholder="Enter a captha" required>
+                </div>
+                <button type="submit" class="purple-button">Reset</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="email-confirm-modal modalReg log-in-modal">
+        <div class="modalReg-content">
+            <div class="modalReg-close modalLog-close" onclick="modalClose(this.closest('.modalReg'))">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5.5 5.5L16.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <img src="image/modalLogo.png" alt="logo">
+            <h3>please confirm your email</h3>
+            <form class="modalReg-form__block">
+                <div class="modalReg-form__inps">
+                    <input type="email" placeholder="Email">
+                </div>
+                <button type="submit" class="purple-button">Confirm</button>
+                <div id="result"></div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="modadlResetPasswordAnswer modalReg">
+        <div class="modalReg-content">
+            <div class="modalReg-close modalLog-close" onclick="modalClose(this.closest('.modalReg'))">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 5.5L5.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M5.5 5.5L16.5 16.5" stroke="#62626A" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <img src="image/modalLogo.png" alt="logo">
+            <h3 style="text-align: center;">email has been sent to your registered address with a reset link.</h3>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
+</body>
+
+</html>ript src="script.js"></script>
 </body>
 
 </html>
